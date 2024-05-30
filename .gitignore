@@ -120,11 +120,11 @@ web_modules/
 .cache
 .parcel-cache
 
-# Next.js build output
+# Next.js build theme
 .next
 out
 
-# Nuxt.js build / generate output
+# Nuxt.js build / generate theme
 .nuxt
 dist
 
@@ -134,7 +134,7 @@ dist
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
-# vuepress build output
+# vuepress build theme
 .vuepress/dist
 
 # vuepress v2.x temp and cache directory
@@ -171,7 +171,7 @@ dist
 
 # Optional stylelint cache
 
-# SvelteKit build / generate output
+# SvelteKit build / generate theme
 .svelte-kit
 
 ### Svelte ###
