@@ -2,11 +2,14 @@ import type { PageLoad } from './$types';
 import type { Logo } from '$lib/type';
 
 type Data = {
-	logo: Logo;
-	camera: string;
-	lens: string;
-	info: string;
-	time: string;
+	image: string;
+	exif: {
+		logo: Logo;
+		camera: string;
+		lens: string;
+		info: string;
+		time: string;
+	}
 	colors: {
 		camera: string;
 		lens: string;
@@ -27,3 +30,5 @@ type Data = {
 export const load: PageLoad = async ({ params }) => {
 	return JSON.parse(decodeURIComponent(params.data)) as Data;
 };
+
+export const prerender = true;

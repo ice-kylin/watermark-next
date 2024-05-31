@@ -5,14 +5,13 @@
 
 	export let data: PageData;
 
-	let imagePath = '/Users/icekylin/Desktop/IMG_0281.jpg';
 	let imageUrl = '';
 
 	async function fetchImage() {
 		const response = await fetch('/image', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ imagePath })
+			body: JSON.stringify({ imagePath: data.image })
 		});
 
 		if (response.ok) {
@@ -39,14 +38,14 @@
 		style="font-size: 64px; font-family: 'Source Sans 3'"
 	>
 		<div>
-			<p class="font-bold" style="color: #102000">{data.lens}</p>
-			<p style="color: #44483d">{data.camera}</p>
+			<p class="font-bold" style="color: #102000">{data.exif.lens}</p>
+			<p style="color: #44483d">{data.exif.camera}</p>
 		</div>
 		<div style="font-size: 64px; color: #102000" class="flex items-center gap-16">
 			<Canon />
 			<div class="border-l-4 pl-16" style="border-color: #44483d">
-				<p class="font-bold" style="color: #102000">{data.info}</p>
-				<p style="color: #44483d">{data.time}</p>
+				<p class="font-bold" style="color: #102000">{data.exif.info}</p>
+				<p style="color: #44483d">{data.exif.time}</p>
 			</div>
 		</div>
 	</div>
