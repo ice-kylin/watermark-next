@@ -1,6 +1,9 @@
 <script lang="ts">
+	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
 	import Canon from '$lib/logo/canon.svelte';
+
+	export let data: PageData;
 
 	let imagePath = '/Users/icekylin/Desktop/IMG_0281.jpg';
 	let imageUrl = '';
@@ -25,22 +28,25 @@
 	});
 </script>
 
-<div class="p-16 inline-block w-fit" style="background-color: #cdeda4">
+<div class="watermark-container inline-block w-fit p-16" style="background-color: #cdeda4">
 	{#if imageUrl}
 		<img src={imageUrl} alt="Origin" class="max-w-fit" />
 	{:else}
 		<p>Loading...</p>
 	{/if}
-	<div class="pt-16 px-16 flex justify-between" style="font-size: 64px; font-family: 'Source Sans 3'">
+	<div
+		class="flex justify-between px-16 pt-16"
+		style="font-size: 64px; font-family: 'Source Sans 3'"
+	>
 		<div>
-			<p class="font-bold" style="color: #102000">RF-S55-210mm F5-7.1 IS STM</p>
-			<p style="color: #44483d">Canon EOS R50</p>
+			<p class="font-bold" style="color: #102000">{data.lens}</p>
+			<p style="color: #44483d">{data.camera}</p>
 		</div>
-		<div style="font-size: 64px; color: #102000" class="flex gap-16 items-center">
+		<div style="font-size: 64px; color: #102000" class="flex items-center gap-16">
 			<Canon />
 			<div class="border-l-4 pl-16" style="border-color: #44483d">
-				<p class="font-bold" style="color: #102000">162mm f/11.0 15s ISO100</p>
-				<p style="color: #44483d">2024-05-22 13:13</p>
+				<p class="font-bold" style="color: #102000">{data.info}</p>
+				<p style="color: #44483d">{data.time}</p>
 			</div>
 		</div>
 	</div>
